@@ -1,0 +1,443 @@
+<script>
+	var i=0;
+	for(i=0;i<=10;i++)
+	{
+		console.log(i+"\n");
+	}
+	var string="brijesh";
+	console.log("My name is "+string);
+
+	var string="Hello Brijesh \"this is double quote\" in \"double quote\"";
+	console.log(string);
+
+	var string2='hello "World"';
+	console.log(string2);
+
+	var string3="first line\n\tsecond line\n\t\tthird line";
+	console.log(string3);
+
+	var string="brijesh"+" dobariya";
+	console.log(string);
+
+	console.log(string+" " +string2);
+
+	console.log(string.length);
+
+	var mystr="what the hell";
+	console.log(mystr[3]);
+
+	console.log(mystr[mystr.length-7]);
+
+	function sum(a,b)
+	{
+		var result=a+b;
+		return result;
+	}
+
+	console.log(sum(10,12));
+//==========================================================================================================
+	var myarr=[[1,2,3],[4,5,6],[[7,8,9],10,11]];
+ 	
+	console.log(myarr[1][2]);
+	console.log(myarr[2][0][1]);
+
+	myarr.push("No God","Please No!");
+	console.log(myarr);
+
+	myarr.pop(10,11);
+	console.log(myarr);
+
+//===========================================================================================================
+	var myarr2=["Brijesh","dobariya","Sorry","work"];
+	console.log(myarr2);
+
+	myarr2.push("from","Home");
+	console.log(myarr2);
+
+	myarr2.pop();
+	console.log(myarr2);
+
+	myarr2.shift();
+	console.log(myarr2);
+
+	myarr2.unshift("Down");
+	console.log(myarr2);
+
+	myarr2.unshift("Cool");
+	console.log(myarr2);
+//============================================================================================================
+	function mylocalscope()
+	{
+		var myvar=5;
+		console.log(myvar);
+	}
+	//console.log(myvar);
+	//remove this comment to see error
+//=======================================================================================================
+	var myno="one";
+	function no()
+	{
+		var myno="two";
+		return myno;
+	}
+
+	console.log(no());
+	console.log(myno);
+//=======================================================================================================
+	var sum=0;
+	function addfive()
+	{
+		sum+=5;
+	}
+	console.log(addfive());
+	console.log(addfive()+" "+sum);
+//========================================================================================================
+	function addarray(arr,item)
+	{
+		arr.push(item);
+		return arr.shift();
+
+	}
+	array=[1,2,3,4,5,6,7];
+
+	console.log("Before : "+JSON.stringify(array));
+	console.log(addarray(array,8));
+	console.log("After : "+JSON.stringify(array));
+//========================================================================================================
+	var mybro=
+	{
+		"name":"Umesh",
+		"prof":"CA",
+		"age":26,
+		"nn":[1,2,"bh"]
+	}
+
+	var names=mybro.name;
+	console.log(names);
+	console.log(mybro.nn[1]);
+//========================================================================================================
+	function isless(a,b)
+	{
+		return a<b;
+	}
+	console.log(isless(10,15));
+	console.log(isless(20,4));
+//=======================================================================================================
+	var company=
+	{
+		"com name":"Brijesh",
+		"tot Share":5000,
+		"location":"San Fransisco"
+	}
+	console.log(company["location"]);
+
+	company["com name"]="Margherita";
+
+	console.log(company);
+	company.pin=23456;
+	console.log(company);
+
+	delete company["pin"];
+	delete company["tot Share"];
+	console.log(company);
+//=====================================================================================================
+
+	function change(val)
+	{
+		var result="";
+		var meme=
+		{
+			"funny":"world",
+			"serious":"highonweed",
+			"humour":"dark",
+			"understand":"error"
+		}
+		result=meme[val];
+		return result;
+	}
+	console.log(change("humour"));
+//============================================================================================
+	var meme=
+		{
+			"funny":"world",
+			"serious":"highonweed",
+			"humour":"dark",
+			"understand":"error"
+		}
+
+	function check(obj)
+	{
+		if(meme[obj])
+		{
+			return meme[obj];
+		}
+		else
+		{
+			return "Not Found";
+		}
+	}
+
+	console.log(check("serious"));
+	console.log(check("ser"));
+//=======================================================================================================
+	var mymusic=
+	[
+		{
+			"artist":"Arijit",
+			"album":"holiday",
+			"year":[2011,2020,2022]
+		},
+		{
+			"name":"Brijesh",
+			"song":"Ocean",
+			"Hit":["all years"]
+		}
+	];
+	console.log(mymusic[1].Hit);
+//==========================================================================================================
+	var mymemory=
+	{
+		"xender":
+		{
+			"app":
+			{
+				"PUBG":"Action",
+				"Fortnite":"Survival"
+			},
+			"video":
+			{
+				"Baaghi":"Hit"
+			}
+		},
+		"Movies":"Day After Tommorow"
+	}
+
+	console.log(mymemory.xender.app["PUBG"]);
+	console.log(mymemory.Movies);
+
+
+//==========================================================================================================
+	var collection=
+	{
+		"2548":
+		{
+			"album":"one",
+			"artist":"two",
+			"tracks":["one","two","three"]
+		},
+		"2648":
+		{
+			"album":"1999",
+			"artist":"prince"
+
+		},
+		"1245":
+		{
+			"artist":"Ace",
+			"tracks":[]
+		},
+		"5439":
+		{
+			"album":"ABBA Gold"
+		}
+
+	};
+
+	var collectionCopy =JSON.parse(JSON.stringify(collection));
+
+	function updateRecords(id,prop,value)
+	{
+		if(value==="")
+		{
+			delete collection[id][prop];
+		}
+		else if(prop==="tracks")
+		{
+			collection[id][prop]=collection[id][prop] || [];
+			collection[id][prop].push(value);
+		}
+		else
+		{
+			collection[id][prop]=value;
+		}
+		return collection;
+	}
+
+	console.log(updateRecords("5439","artist","ABBA"));
+//===========================================================================================================
+
+	var n=100;
+	var sum=(n*(n+1))/2;
+	console.log(sum);
+
+	//-------------------
+
+	var total=0;
+	for(var i=0;i<=100;i++)
+	{
+		total=total+i;
+	}
+	console.log(total);
+
+//============================================================================================================
+
+	var contacts=
+	[
+		{
+			"firstName":"Akira",
+			"lastName":"Laine",
+			"number":"0987654345678",
+			"likes":["pizza","coding","points"]
+		},
+		{
+			"firstName":"Harry",
+			"lastName":"potter",
+			"number":"098765456",
+			"likes":["Hogwarts","Magic","Hagrid"]
+		},
+		{
+			"firstName":"Sherlock",
+			"lastName":"Holmes",
+			"number":"9876543567",
+			"likes":["Cases","violin"]
+		},
+		{
+			"firstName":"Krish",
+			"lastName":"vos",
+			"number":"unknown",
+			"likes":["javascript","Gaming","Foxes"]
+		}
+		
+	];
+
+	function lookupprofile(name,prop)
+	{
+		for(var i=0;i<contacts.length;i++)
+		{
+			if(contacts[i].firstName===name)
+			{
+				return contacts[i][prop] || "No Such Property";
+			}
+		}
+		return "No such contact"
+	}
+
+	var data = lookupprofile("Sherlock","lastName");
+	console.log(data);
+
+//==========================================================================================================
+
+	function random()
+	{
+		return Math.random();
+	}
+	console.log(random());
+
+//===========================================================================================================
+	function myrandom(min,max)
+	{
+		return Math.floor(Math.random() * (max-min)) + min;
+	}
+
+	console.log(myrandom(10,18));
+
+//==========================================================================================================
+	function convert(str)
+	{
+		return parseInt(str,16);
+	}
+	console.log(convert("12A3BDF"));
+
+//==========================================================================================================
+
+	function freezeObj()
+	{
+		"use strict";
+		const MATH_CONSTANT={
+			PI:3.14
+		}
+
+		Object.freeze(MATH_CONSTANT);
+
+		try
+		{
+			MATH_CONSTANT.PI=34;
+		}
+		catch(ex)
+		{
+			console.log(ex);
+		}
+		return MATH_CONSTANT.PI;
+	}
+
+	const PI=freezeObj();
+	console.log(PI);
+
+//===========================================================================================================
+	const myConcat = (arr1,arr2) => arr1.concat(arr2);
+
+	console.log(myConcat([1,2],[3,4,5]));
+//========================================================================================================
+
+	const mynum=[1.2,64,-63,4.6,-25.5,4,6];
+
+	const list=(arr)=>
+	{
+		const square=arr.filter(num=> Number.isInteger(num) && num>0).map(x=>x*x);
+		return square;
+	}
+	const square=list(mynum);
+	console.log(square);
+//=======================================================================================================
+	let a=6,b=4;
+	(()=>
+	{
+		"use strict";
+		[a,b]=[b,a];
+	});
+	console.log(a);
+	console.log(b);
+//=============================================================================================================
+	const  stats=
+	{
+		max:34.23,
+		mode:23,
+		min:-4.2
+	};
+
+   	const half=(function(){
+   		return function half({max,min})
+   		{
+   			return (max+min)/2.0;
+   		};
+   	})();
+   	console.log(stats);
+   	console.log(half(stats));
+//====================================================================================================
+	const greetings=`hello my income is ${stats.max}
+	and my age is ${stats.mode}`;
+
+	console.log(greetings);
+//====================================================================================================
+	class planet
+	{
+		constructor(name)
+		{
+			this.name=name;
+		}
+	}
+	var planets=new planet("jupiter");
+	console.log(planets.name);
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
